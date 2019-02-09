@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>test</title>
+</head>
+
+<body>
+	<script>
+		const types = [
+			"color",
+			"date",
+			"datetime",
+			"datetime-local",
+			"time",
+			"email",
+			"text",
+			"file",
+			"hidden",
+			"image",
+			"month",
+			"number",
+			"button",
+			"checkbox",
+			"password",
+			"radio",
+			"range",
+			"reset",
+			"submit",
+			"tel",
+			"search",
+			"url",
+			"week"
+		];
+		types.forEach((type) => {
+			const fieldset = document.createElement("fieldset");
+			const legend = document.createElement("legend");
+			legend.appendChild(document.createTextNode(type));
+			const input = document.createElement("input");
+			input.type = type;
+			try {
+				if (type === "text") {
+					input.placeholder = "どぞ";
+				} else {
+					input.value = "test";
+				}
+			} catch (err) {
+				console.error(`${type} can not set value: ${err}`);
+			}
+			fieldset.appendChild(legend);
+			fieldset.appendChild(input);
+			document.body.appendChild(fieldset);
+		});
+	</script>
+
+	<math>
+		<mrow>
+			<mrow>
+				<msup>
+					<mi>a</mi>
+					<mn>2</mn>
+				</msup>
+				<mo>+</mo>
+				<msup>
+					<mi>b</mi>
+					<mn>2</mn>
+				</msup>
+			</mrow>
+			<mo>=</mo>
+			<msup>
+				<mi>c</mi>
+				<mn>2</mn>
+			</msup>
+		</mrow>
+	</math>
+
+	<filedset>
+		<legend>meter</legend>
+		<meter id="fuel" name="fuel" min="0" max="100" low="33" high="66" optimum="80" value="0">
+			at 50/100
+		</meter>
+		<script>
+			(() => {
+				document.querySelector("#fuel").addEventListener("click", () => {
+					const timer = setInterval(() => {
+						document.querySelector("#fuel").value++;
+						if (document.querySelector("#fuel").value >= 100) clearInterval(timer);
+					}, 100);
+				})
+			})();
+		</script>
+	</filedset>
+	<fieldset>
+		<legend>progress</legend>
+		<progress id="file" max="100" value="0"> 0% </progress>
+		<progress id="indeterminate">indeterminate </progress>
+		<script>
+			(() => {
+				document.querySelector("#file").addEventListener("click", () => {
+					const timer = setInterval(() => {
+						document.querySelector("#file").value++;
+						if (document.querySelector("#file").value >= 100) clearInterval(timer);
+					}, 100);
+				});
+			})();
+		</script>
+	</fieldset>
+	<fieldset>
+		<legend>details and summary</legend>
+			<details>
+				<summary>
+					まいちゃんです。
+				</summary>
+				<p>私はほーてぃまいです。</p>
+				<p>ベトナムからきました。</p>
+				<p>３０さいです。</p>
+				<p>日本語のN2です。</p>
+				<p>N1までもうちょっとかなーって思ってます。</p>
+			</details>
+	</fieldset>
+
+	<!--
+	<dialog open>
+		<p>Greetings, one and all!</p>
+	</dialog>
+
+	<dialog id="favDialog">
+		<form method="dialog">
+			<p><label>Favorite animal:
+					<select>
+						<option></option>
+						<option>Brine shrimp</option>
+						<option>Red panda</option>
+						<option>Spider monkey</option>
+					</select>
+				</label></p>
+			<menu>
+				<button>Cancel</button>
+				<button>Confirm</button>
+			</menu>
+		</form>
+	</dialog>
+
+	<menu>
+		<button id="updateDetails">Update details</button>
+	</menu>
+
+	<output></output>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			(function () {
+				var updateButton = document.getElementById('updateDetails');
+				var favDialog = document.getElementById('favDialog');
+				var outputBox = document.getElementsByTagName('output')[0];
+
+				// “Update details” button opens the <dialog> modally
+				updateButton.addEventListener('click', function () {
+					favDialog.showModal();
+					outputBox.value += favDialog.returnValue + " button clicked!\x2028";
+				});
+			})();
+
+		});
+	</script>
+	-->
+</body>
+
+
+</html>
